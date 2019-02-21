@@ -1,0 +1,6 @@
+client:
+  apiKey:
+    id: 0oajf5k6ybbR8KG2I0h7
+    secret: YOUR_API_KEY_SECRET
+application:
+  href: https://dev-509606.oktapreview.com/oauth2/default
