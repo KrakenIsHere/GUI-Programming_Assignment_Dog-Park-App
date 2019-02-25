@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+
+    <title>EES Dog thing</title>
+  </head>
+  <body>
+
+  <div id="root">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li class="dropdown">
+      <a class="dropbtn">Dropdown</a>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="content">
+
+      <button id="TimeButton" onclick="displayDate()">The time is?</button>
+
+      <script>
+        function displayDate()
+        {
+          document.getElementById("TimeButton").innerHTML = Date();
+        }
+      </script>
+    </div>
+  </div>
+
+  </body>
+</html>
