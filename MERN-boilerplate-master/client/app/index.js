@@ -16,8 +16,6 @@ import Login from './components/Login/Login';
 
 import HelloWorld from './components/HelloWorld/HelloWorld';
 
-import './styles/styles.scss';
-
 render((
   <Router>
     <App>

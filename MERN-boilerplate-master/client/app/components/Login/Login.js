@@ -211,14 +211,15 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div className="LoginContainer">
-          <div>
+        <div className="ParentContainer">
+        <br />
+          <div className="LoginContainer">
             {
               (signInError) ? (
                 <p>{signInError}</p>
               ) : (null)
             }
-            <p>Sign In</p>
+            <p>Login</p>
             <input
               type="email"
               placeholder="Email"
@@ -235,9 +236,7 @@ class Home extends Component {
             <br />
             <button onClick={this.onSignIn}>Sign In</button>
           </div>
-          <br />
-          <br />
-          <div>
+          <div className="SignupContainer">
             {
               (signUpError) ? (
                 <p>{signUpError}</p>
@@ -258,7 +257,7 @@ class Home extends Component {
             /><br />
             <button onClick={this.onSignUp}>Sign Up</button>
           </div>
-
+          <br />
         </div>
       );
     }
