@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap';
-//C:/Users/HFGF/Desktop/MERN-boilerplate-master/../../../../Header.js
 
 import { Link } from 'react-router-dom';
 
@@ -18,10 +17,10 @@ const Header = () => (
             <NavLink className="nav-link" activeClassName="nav-link active" exact={true} to="/">Home</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeClassName="nav-link active" to="/about">About</NavLink>
+            <NavLink className="nav-link" activeClassName="nav-link active" to="/HelloWorld">Hello World</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeClassName="nav-link active" to="/contact">Contact</NavLink>
+            <NavLink className="nav-link" activeClassName="nav-link active" to="/Login">Login</NavLink>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
@@ -31,19 +30,7 @@ const Header = () => (
       </div>
     </nav>
 
-    <hr />
-
-    <Main />
-
   </header>
-);
-
-const Main = () => (
-  <Switch>
-    <Route exact path='/' component={Home}></Route>
-    <Route exact path='/about' component={About}></Route>
-    <Route exact path='/contact' component={Contact}></Route>
-  </Switch>
 );
 
 export default Header;
