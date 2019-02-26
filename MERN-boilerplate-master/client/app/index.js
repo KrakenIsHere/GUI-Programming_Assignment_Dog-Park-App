@@ -14,14 +14,14 @@ import NotFound from './components/App/NotFound';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 
-import HelloWorld from './components/HelloWorld/HelloWorld';
+import Map from './components/Map/Map';
 
 render((
   <Router>
     <App>
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/helloworld" component={HelloWorld}/>
+        <Route path="/map" component={Map}/>
         <Route path="/login" component={Login}/>
 
         <Route component={NotFound}/>

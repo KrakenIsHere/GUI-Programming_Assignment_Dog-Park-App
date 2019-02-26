@@ -211,52 +211,82 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div className="ParentContainer">
-        <br />
-          <div className="LoginContainer">
-            {
-              (signInError) ? (
-                <p>{signInError}</p>
-              ) : (null)
-            }
-            <p>Login</p>
-            <input
-              type="email"
-              placeholder="Email"
-              value={signInEmail}
-              onChange={this.onTextboxChangeSignInEmail}
-            />
+        <div className="MainContainter">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <div className="ParentContainer">
+          <br />
+            <div className="LoginContainer">
+              {
+                (signInError) ? (
+                  <p>{signInError}</p>
+                ) : (null)
+              }
+              <p>Login</p>
+              <input
+                type="email"
+                placeholder="Email"
+                value={signInEmail}
+                onChange={this.onTextboxChangeSignInEmail}
+              />
+              <br />
+              <br />
+              <input
+                type="password"
+                placeholder="Password"
+                value={signInPassword}
+                onChange={this.onTextboxChangeSignInPassword}
+              />
+              <br />
+              <br />
+              <button onClick={this.onSignIn}>Sign In</button>
+            </div>
+
+            <div>
+              <p> OR </p>
+            </div>
+
             <br />
-            <input
-              type="password"
-              placeholder="Password"
-              value={signInPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
+            <div className="SignupContainer">
+              {
+                (signUpError) ? (
+                  <p>{signUpError}</p>
+                ) : (null)
+              }
+              <p>Sign Up</p>
+              <input
+                type="email"
+                placeholder="Email"
+                value={signUpEmail}
+                onChange={this.onTextboxChangeSignUpEmail}
+              />
+              <br />
+              <br />
+              <input
+                type="password"
+                placeholder="Password"
+                value={signUpPassword}
+                onChange={this.onTextboxChangeSignUpPassword}
+              />
+              <br />
+              <br />
+              <button onClick={this.onSignUp}>Sign Up</button>
+            </div>
             <br />
-            <button onClick={this.onSignIn}>Sign In</button>
           </div>
-          <div className="SignupContainer">
-            {
-              (signUpError) ? (
-                <p>{signUpError}</p>
-              ) : (null)
-            }
-            <p>Sign Up</p>
-            <input
-              type="email"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
-            /><br />
-            <input
-              type="password"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignUpPassword}
-            /><br />
-            <button onClick={this.onSignUp}>Sign Up</button>
-          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <br />
         </div>
       );
