@@ -51,5 +51,14 @@
     "webpack-hot-middleware": "^2.21.2",
     "webpack-merge": "^4.1.2",
     "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.5",
+    "css-loader": "^0.28.11",
+    "exports-loader": "^0.7.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^2.1.6",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3"
   }
 }

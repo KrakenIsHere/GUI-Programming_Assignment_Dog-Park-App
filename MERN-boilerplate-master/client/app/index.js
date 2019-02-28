@@ -13,6 +13,7 @@ import NotFound from './components/App/NotFound';
 
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import Register from './components/Login/Register';
 
 import Map from './components/Map/Map';
 
@@ -23,6 +24,7 @@ render((
         <Route exact path="/" component={Home}/>
         <Route path="/map" component={Map}/>
         <Route path="/login" component={Login}/>
+        <Route path="/register" component={Register}/>
 
         <Route component={NotFound}/>
       </Switch>

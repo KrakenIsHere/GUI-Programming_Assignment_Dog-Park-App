@@ -1,34 +1,27 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-//\app\styles\Login\Login.css
 
 import {
   getFromStorage,
   setInStorage,
 } from '../../utils/storage';
 
-class Home extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isLoading: true,
       token: '',
-      signUpError: '',
       signInError: '',
       signInEmail: '',
       signInPassword: '',
-      signUpEmail: '',
-      signUpPassword: '',
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
-    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
 
     this.onSignIn = this.onSignIn.bind(this);
-    this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
   }
 
@@ -68,58 +61,6 @@ class Home extends Component {
     this.setState({
       signInPassword: event.target.value,
     });
-  }
-
-  onTextboxChangeSignUpEmail(event) {
-    this.setState({
-      signUpEmail: event.target.value,
-    });
-  }
-
-  onTextboxChangeSignUpPassword(event) {
-    this.setState({
-      signUpPassword: event.target.value,
-    });
-  }
-
-  onSignUp() {
-    // Grab state
-    const {
-      signUpEmail,
-      signUpPassword,
-    } = this.state;
-
-    this.setState({
-      isLoading: true,
-    });
-
-    // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: signUpEmail,
-        password: signUpPassword,
-      }),
-    }).then(res => res.json())
-      .then(json => {
-        console.log('json', json);
-        if (json.success) {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-            signUpEmail: '',
-            signUpPassword: '',
-          });
-        } else {
-          this.setState({
-            signUpError: json.message,
-            isLoading: false,
-          });
-        }
-      });
   }
 
   onSignIn() {
@@ -200,9 +141,6 @@ class Home extends Component {
       signInError,
       signInEmail,
       signInPassword,
-      signUpEmail,
-      signUpPassword,
-      signUpError,
     } = this.state;
 
     if (isLoading) {
@@ -211,95 +149,67 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div className="MainContainter">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div className="ParentContainer">
-          <br />
-            <div className="LoginContainer">
-              {
-                (signInError) ? (
-                  <p>{signInError}</p>
-                ) : (null)
-              }
-              <p>Login</p>
-              <input
-                type="email"
-                placeholder="Email"
-                value={signInEmail}
-                onChange={this.onTextboxChangeSignInEmail}
-              />
-              <br />
-              <br />
-              <input
-                type="password"
-                placeholder="Password"
-                value={signInPassword}
-                onChange={this.onTextboxChangeSignInPassword}
-              />
-              <br />
-              <br />
-              <button onClick={this.onSignIn}>Sign In</button>
-            </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+              <div className="card card-signin my-5">
+                <div className="card-body">
+                  <h5 className="card-title text-center">Login</h5>
+                  <form className="form-signin">
+                    <div className="form-label-group">
+                      <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus
+                      type="email"
+                      placeholder="Email"
+                      value={signInEmail}
+                      onChange={this.onTextboxChangeSignInEmail}/>
 
-            <div>
-              <p> OR </p>
-            </div>
+                      <label htmlFor="inputEmail">Email address</label>
+                    </div>
 
-            <br />
-            <div className="SignupContainer">
-              {
-                (signUpError) ? (
-                  <p>{signUpError}</p>
-                ) : (null)
-              }
-              <p>Sign Up</p>
-              <input
-                type="email"
-                placeholder="Email"
-                value={signUpEmail}
-                onChange={this.onTextboxChangeSignUpEmail}
-              />
-              <br />
-              <br />
-              <input
-                type="password"
-                placeholder="Password"
-                value={signUpPassword}
-                onChange={this.onTextboxChangeSignUpPassword}
-              />
-              <br />
-              <br />
-              <button onClick={this.onSignUp}>Sign Up</button>
+                    <div className="form-label-group">
+                      <input type="password" id="inputPassword" className="form-control" placeholder="Password" required
+                      type="password"
+                      placeholder="Password"
+                      value={signInPassword}
+                      onChange={this.onTextboxChangeSignInPassword}/>
+
+                      <label htmlFor="inputPassword">Password</label>
+                    </div>
+
+                    <div className="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" className="custom-control-input" id="customCheck1"/>
+                      <label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
+                    </div>
+                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={this.onSignIn}>Login</button>
+                    <hr/>
+                    <a className="btn btn-lg btn-primary btn-block text-uppercase" href="Register">Register</a>
+                  </form>
+                </div>
+              </div>
             </div>
-            <br />
           </div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </div>
       );
     }
 
     return (
-      <div>
-        <p>Account</p>
-        <button onClick={this.logout}>Logout</button>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div className="card card-signin my-5">
+              <div className="card-body">
+                <h5 className="card-title text-center">Account</h5>
+                <form className="form-signin">
+                  <button className="btn btn-lg btn-danger btn-block text-uppercase" type="submit" onClick={this.logout}>Logout</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 
-export default Home;
+export default Login;
