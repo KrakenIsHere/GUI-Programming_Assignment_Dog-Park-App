@@ -6,6 +6,8 @@ import {
   setInStorage,
 } from '../../utils/storage';
 
+import Header from '../Header/Header'
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -132,6 +134,8 @@ class Login extends Component {
         isLoading: false,
       });
     }
+
+    window.location.reload();
   }
 
   render() {
@@ -174,6 +178,7 @@ class Login extends Component {
                       onChange={this.onTextboxChangeSignInPassword}/>
 
                       <label htmlFor="inputPassword">Password</label>
+                      <p id="ErrorMessage" className="text-danger">{ signInError }</p>
                     </div>
 
                     <div className="custom-control custom-checkbox mb-3">

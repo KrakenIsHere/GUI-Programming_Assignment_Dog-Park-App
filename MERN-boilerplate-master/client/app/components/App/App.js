@@ -7,11 +7,13 @@ import "../../styles/CustomS";
 const App = ({ children }) => (
   <>
     <Header />
+    <br/>
 
     <main>
       {children}
     </main>
 
+    <br/>
     <Footer />
   </>
 );
