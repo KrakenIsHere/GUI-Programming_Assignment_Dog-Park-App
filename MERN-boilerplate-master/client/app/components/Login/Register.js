@@ -79,9 +79,6 @@ class Register extends Component {
         signUpPassword2,
       } = this.state;
 
-      console.log(signUpPassword1);
-      console.log(signUpPassword2);
-
       if (signUpPassword1 == signUpPassword2)
       {
         this.setState({
