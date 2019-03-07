@@ -43,7 +43,7 @@ class Header extends Component {
        });
      }
    }
-   
+
    componentDidUpdate() {
      const obj = getFromStorage('the_main_app');
      if (obj && obj.token) {
@@ -89,6 +89,9 @@ class Header extends Component {
                  <li className="nav-item">
                    <NavLink className="nav-link" activeClassName="nav-link active" exact={true} to="/">Home</NavLink>
                  </li>
+                 <li className="nav-item">
+                   <NavLink className="nav-link" activeClassName="nav-link active" to="/Contact">Contact</NavLink>
+                 </li>
                </ul>
                <form className="form-inline my-2 my-lg-0 navbar-nav">
                <li className="nav-item">
@@ -120,6 +123,9 @@ class Header extends Component {
                  <li className="nav-item">
                    <NavLink className="nav-link" activeClassName="nav-link active" to="/Map">Map</NavLink>
                  </li>
+                 <li className="nav-item">
+                   <NavLink className="nav-link" activeClassName="nav-link active" to="/Contact">Contact</NavLink>
+                 </li> 
                </ul>
                <form className="form-inline my-2 my-lg-0 navbar-nav">
                <li className="nav-item">
