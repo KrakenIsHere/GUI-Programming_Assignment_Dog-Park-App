@@ -124,8 +124,11 @@ class Header extends Component {
                    <NavLink className="nav-link" activeClassName="nav-link active" to="/Map">Map</NavLink>
                  </li>
                  <li className="nav-item">
+                   <NavLink className="nav-link" activeClassName="nav-link active" to="/Map0">Map0</NavLink>
+                 </li>
+                 <li className="nav-item">
                    <NavLink className="nav-link" activeClassName="nav-link active" to="/Contact">Contact</NavLink>
-                 </li> 
+                 </li>
                </ul>
                <form className="form-inline my-2 my-lg-0 navbar-nav">
                <li className="nav-item">

@@ -13,7 +13,7 @@ render() {
     <div className="row" id="contact">
       <div className="container mt-5" >
           <div className="row">
-            <div className="col-md-6 maps" >
+            <div className="col-md-6" >
             <iframe id="map" width="100%" height="350" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?q=SydDansk+Erhvervsskole+Munkebjergvej&t=&z=12&ie=UTF8&iwloc=&output=embed"
             style={{border:0}} allowFullScreen></iframe>
             </div>

@@ -17,6 +17,7 @@ import Register from './components/Login/Register';
 import Contact from './components/Contact/Contact';
 
 import Map from './components/Map/Map';
+import Map0 from './components/Map/Map0';
 
 render((
   <Router>
@@ -24,6 +25,7 @@ render((
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/map" component={Map}/>
+        <Route path="/map0" component={Map0}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/contact" component={Contact}/>
