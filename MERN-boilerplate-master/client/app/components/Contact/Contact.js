@@ -66,11 +66,11 @@ render() {
 
               <br />
 
-              <i className="fas fa-phone mt-3"></i> <a href="tel:+">(+39) 123456</a><br/>
-              <i className="fas fa-phone mt-3"></i> <a href="tel:+">(+39) 123456</a><br/>
-              <i className="fa fa-envelope mt-3"></i> <a href="">info@test.it</a><br/>
-              <i className="fas fa-globe mt-3"></i> Piazza del Colosseo, 1, 00184 Rome<br/>
-              <i className="fas fa-globe mt-3"></i> Piazza del Colosseo, 1, 00184 Rome<br/>
+              <i className="fas fa-phone mt-3"></i> <a href="tel:+">(+45) 1234 5678</a><br/>
+              <i className="fas fa-phone mt-3"></i> <a href="tel:+">(+45) 1234 5678</a><br/>
+              <i className="fa fa-envelope mt-3"></i> <a href="">mail@insert.here</a><br/>
+              <i className="fas fa-globe mt-3"></i> Fake blv, 42, 9999 Fake City<br/>
+              <i className="fas fa-globe mt-3"></i> Real road, 69, 9998 Existing City<br/>
 
               </div>
             </div>
