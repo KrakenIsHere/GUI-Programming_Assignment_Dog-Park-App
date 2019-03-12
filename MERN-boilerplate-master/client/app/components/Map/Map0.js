@@ -16,8 +16,16 @@ class Map0 extends  Component {
 
     this.selectorDrop = this.selectorDrop.bind(this);
     this.searchButtonClick = this.searchButtonClick.bind(this);
+
     this.setCountrySelectorOptions = this.setCountrySelectorOptions.bind(this);
-    this.setStateSelectorOptions =this.setStateSelectorOptions.bind(this);
+    this.setStateSelectorOptions = this.setStateSelectorOptions.bind(this);
+    this.setRegionSelectorOptions = this.setRegionSelectorOptions.bind(this);
+    this.setCitySelectorOptions = this.setCitySelectorOptions.bind(this);
+
+    this.CountrySelectorChanged = this.CountrySelectorChanged.bind(this);
+    this.StateSelectorChanged = this.StateSelectorChanged.bind(this);
+    this.RegionSelectorChanged = this.RegionSelectorChanged.bind(this);
+    this.CitySelectorChanged = this.CitySelectorChanged.bind(this);
   }
 
 componentDidMount() {
@@ -56,12 +64,103 @@ componentDidMount() {
   });
 }
 
+CountrySelectorChanged() {
+  var state = document.getElementById('State');
+  var region = document.getElementById('Region');
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
+
+  state.selectedIndex = 0;
+  region.selectedIndex = 0;
+  city.selectedIndex = 0;
+  park.selectedIndex = 0;
+
+  while (state.options.length > 1) {
+    state.remove(state.options.length);
+  }
+
+  while (region.options.length > 1) {
+    region.remove(region.options.length);
+  }
+
+  while (city.options.length > 1) {
+    city.remove(city.options.length);
+  }
+
+  while (park.options.length > 1) {
+    park.remove(park.options.length);
+  }
+
+  this.setState({
+    isCountriesSet: true,
+    isStatesSet: false,
+    isRegionSet: false,
+    isCitySet: false
+  });
+}
+
+StateSelectorChanged() {
+  var region = document.getElementById('Region');
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
+
+  region.selectedIndex = 0;
+  city.selectedIndex = 0;
+  park.selectedIndex = 0;
+
+  while (region.options.length > 1) {
+    region.remove(region.options.length);
+  }
+
+  while (city.options.length > 1) {
+    city.remove(city.options.length);
+  }
+
+  while (park.options.length > 1) {
+    park.remove(park.options.length);
+  }
+
+  this.setState({
+    isStatesSet: true,
+    isRegionSet: false,
+    isCitySet: false
+  });
+}
+
+RegionSelectorChanged() {
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
+
+  city.selectedIndex = 0;
+  park.selectedIndex = 0;
+
+  while (city.options.length > 1) {
+    city.remove(city.options.length);
+  }
+
+  while (park.options.length > 1) {
+    park.remove(park.options.length);
+  }
+
+  this.setState({
+    isRegionSet: true,
+    isCitySet: false
+  });
+}
+
+CitySelectorChanged() {
+
+}
+
 setCountrySelectorOptions() {
   var country = document.getElementById('Country');
+  var state = document.getElementById('State');
+  var region = document.getElementById('Region');
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
 
   geonames.countryInfo({})
   .then(countries => {
-
     for (var i = 0; i < countries.geonames.length; i++) {
       var option = document.createElement('option');
       option.value = countries.geonames[i].geonameId;
@@ -73,12 +172,17 @@ setCountrySelectorOptions() {
     console.log(err)
   });
 
-  this.setState({isCountriesSet: true});
+  this.setState({
+    isCountriesSet: true
+  });
 }
 
 setStateSelectorOptions() {
   var country = document.getElementById('Country');
   var state = document.getElementById('State');
+  var region = document.getElementById('Region');
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
 
   geonames.countryInfo({})
   .then(countries => {
@@ -93,12 +197,77 @@ setStateSelectorOptions() {
     }
   })
   .catch(err => {
-    console.log(err)
+    console.log(err);
   });
 
-  this.setState({isStatesSet: true});
+  this.setState({
+    isStatesSet: true,
+  });
 }
 
+setRegionSelectorOptions() {
+  var country = document.getElementById('Country');
+  var state = document.getElementById('State');
+  var region = document.getElementById('Region');
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
+
+  geonames.countryInfo({})
+  .then(countries => {
+    return geonames.children({geonameId: country.value})
+  })
+  .then(states => {
+    return geonames.children({geonameId: region.value});
+  })
+  .then(regions => {
+    for (var i = 0; i < regions.geonames.length; i++) {
+      var option = document.createElement('option');
+      option.value = regions.geonames[i].geonameId;
+      option.textContent = regions.geonames[i].name;
+      region.appendChild(option);
+    }
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+  this.setState({
+    isRegionSet: true,
+  });
+}
+
+setCitySelectorOptions() {
+  var country = document.getElementById('Country');
+  var state = document.getElementById('State');
+  var region = document.getElementById('Region');
+  var city = document.getElementById('City');
+  var park = document.getElementById('Park');
+
+  geonames.countryInfo({})
+  .then(countries => {
+    console.log(countries.geonames);
+    return geonames.children({geonameId: country.value})
+  })
+  .then(states => {
+    console.log(states.geonames);
+    return geonames.children({geonameId: state.value});
+  })
+  .then(regions => {
+    console.log(regions.geonames);
+    return geonames.children({geonameId: region.value});
+  })
+  .then(cities => {
+    for (var i = 0; i < cities.geonames.length; i++) {
+      var option = document.createElement('option');
+      option.value = cities.geonames[i].geonameId;
+      option.textContent = cities.geonames[i].name;
+      city.appendChild(option);
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  });
+}
 
 selectorDrop(event) {
   event.target.className = "selector";
@@ -120,12 +289,16 @@ selectorDrop(event) {
     }
     case 'Region':
     {
-
+      if (this.state.isRegionSet == false) {
+        this.setRegionSelectorOptions();
+      }
       break;
     }
     case 'City':
     {
-      this.setStateSelectorOptions();
+      if (this.state.isCitySet == false) {
+        this.setCitySelectorOptions();
+      }
       break;
     }
     case 'Park':
@@ -163,28 +336,28 @@ render() {
             <div className="col-md-6">
               <h2 className="text-uppercase mt-3 font-weight-bold text-white">Find Park:</h2>
 
-              <select id="Country" className="selector text-muted" onClick={this.selectorDrop}>
+              <select id="Country" className="selector text-muted" onClick={this.selectorDrop} onChange={this.CountrySelectorChanged}>
                 <option value="">-- Country --</option>
               </select>
 
               <br/>
               <br/>
 
-              <select id="State" className="selector text-muted" onClick={this.selectorDrop}>
+              <select id="State" className="selector text-muted" onClick={this.selectorDrop} onChange={this.StateSelectorChanged}>
                 <option value="">-- State --</option>
               </select>
 
               <br/>
               <br/>
 
-              <select id="Region" className="selector text-muted" onClick={this.selectorDrop}>
+              <select id="Region" className="selector text-muted" onClick={this.selectorDrop} onChange={this.RegionSelectorChanged}>
                 <option value="">-- Region --</option>
               </select>
 
               <br/>
               <br/>
 
-              <select id="City" className="selector text-muted" onClick={this.selectorDrop}>
+              <select id="City" className="selector text-muted" onClick={this.selectorDrop} onChange={this.CitySelectorChanged}>
                 <option value="">-- City --</option>
               </select>
 
@@ -208,7 +381,7 @@ render() {
                   </div>
                   </div>
                   <div className="col-12">
-                    <button className="btn btn-success" type="button" onClick={this.searchButtonClick}>Search</button>
+                    <button className="btn btn-success" type="button" onChange={this.searchButtonClick}>Search</button>
                   </div>
                 </div>
               </form>
