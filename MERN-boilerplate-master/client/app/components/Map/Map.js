@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import dataset from '../../../../Data/OdenseHundeParker'
 
 class Map extends  Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      isParksSet: false
     };
 
     this.parkSelectClick = this.parkSelectClick.bind(this);
@@ -15,33 +17,21 @@ class Map extends  Component {
   }
 
   parkSelectClick() {
+    if (this.state.isParksSet == false) {
     var dropdown = document.getElementById('park-select');
 
-    const url = 'https://portal.opendata.dk/dataset/62fe5392-9bb6-49c5-ba41-3a1b0297a3c2/resource/37816225-3471-4fd5-a855-66b9780baf8d/download/hundeskoveoghundeparker.json';
-
-    const request = new XMLHttpRequest();
-    request.open('GET', url, true);
-
-    request.onload = function() {
-      if (request.status === 200) {
-        const data = JSON.parse(request.responseText);
-        let option;
-        for (let i = 0; i < data.length; i++) {
-          option = document.createElement('option');
-          option.text = data[i].name;
-          option.value = data[i].abbreviation;
-          dropdown.add(option);
-        }
-       } else {
-        // Reached the server, but it returned an error
+      for (var i = 0; i < dataset.features.length; i++) {
+        var option = document.createElement('option');
+        console.log(dataset.features[i].properties.placering);
+        option.value = dataset.features[i].properties.placering;
+        option.textContent = dataset.features[i].properties.placering;
+        dropdown.appendChild(option);
       }
+
+      this.setState({
+        isParksSet: true
+      });
     }
-
-    request.onerror = function() {
-      console.error('The above error occurred while fetching the JSON from ' + url);
-    };
-
-    request.send();
   }
 
 render() {
@@ -66,7 +56,7 @@ render() {
                   <div className="col-12">
                   <div className="form-group">
                     <div className="form-check">
-                      <select className="park-select" onClick={this.parkSelectClick}>
+                      <select id="park-select" onClick={this.parkSelectClick}>
                         <option>-- Park --</option>
                       </select>
 
