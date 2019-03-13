@@ -141,3 +141,11 @@ html body .NotFoundPage {
 .darkred {
   color: darkred;
 }
+
+.max-width {
+  width: 100%;
+}
+
+.text-middle {
+  text-align: center;
+}

@@ -13,9 +13,39 @@ const webpackConfig = require('../webpack.config');
 const isDev = process.env.NODE_ENV !== 'production';
 const port  = process.env.PORT || 8080;
 
+const nodemailer = require('nodemailer');
+const xoauth2 = require('xoauth2');
 
 // Configuration
 // ================================================================================================
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    xoauth2: xoauth2.createXOAuth2Generator({
+      user: 'sarka1223@gmail.com',
+      clientId: '296309377569-ouh2vpnr6m5u8h11gag6vv41qak4mt73.apps.googleusercontent.com',
+      clientSecret: '0T5i1V8IKj7jDagOHTwfDXtr',
+      refreshToken: '1/_Bfv76CQkgNKGqrqnw_5pU6XH6tls1i-3fjL5wcByi8'
+    })
+  }
+})
+
+var mailOptions = {
+  from: 'Kraken <sarka1223@gmail.com>',
+  to: 'sarka1223@gmail.com',
+  subject: 'Dog play date request',
+  text: 'success'
+}
+
+transporter.sendMail(mailOptions, function (err, res){
+  if (err) {
+    console.log('Error: Cant send mail\n Reason: ' + err);
+  }
+  else {
+    console.log('Mail Sent');
+  }
+})
+
 
 // Set up Mongoose
 mongoose.connect(isDev ? config.db_dev : config.db);

@@ -56,15 +56,29 @@ render() {
                   <div className="col-12">
                   <div className="form-group">
                     <div className="form-check">
-                      <select id="park-select" onClick={this.parkSelectClick}>
+
+                      <select id="park-select" className="btn bg-white max-width text-middle" onClick={this.parkSelectClick}>
                         <option>-- Park --</option>
                       </select>
+
+                      <br/>
+                      <br/>
+
+                      <input type="email" className="form-control" id="senderMail" placeholder="Your@E-mail.com" required/>
+
+                      <br/>
+
+                      <input type="email" className="form-control" id="resciverMail" placeholder="Recipient@E-mail.com" required/>
+
+                      <br/>
+
+                      <textarea className="form-control" id="mailText" placeholder="Message" rows="4" required></textarea>
 
                     </div>
                   </div>
                   </div>
                   <div className="col-12">
-
+                    <button className="btn btn-success" type="submit">Send Request</button>
                   </div>
                 </div>
               </form>
