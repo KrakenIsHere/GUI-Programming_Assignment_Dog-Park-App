@@ -7,12 +7,8 @@ module.exports = (app) => {
   // Sign up
   app.post('/api/account/signup', (req, res, next) => {
     const { body } = req;
-    const {
-      password
-    } = body;
-    let {
-      email
-    } = body;
+    const { password } = body;
+    let { email } = body;
 
     //Checks if email is empty
     if (!email) {

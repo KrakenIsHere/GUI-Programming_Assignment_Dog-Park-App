@@ -46,7 +46,7 @@ Database:
 
 
 Error Handeling and Testing:
-- Errors
+- Status codes
   - Page load OK (200)
   - Sign-up success (201)
   - Login success (202)

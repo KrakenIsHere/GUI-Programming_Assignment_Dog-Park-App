@@ -13,11 +13,11 @@ const webpackConfig = require('../webpack.config');
 const isDev = process.env.NODE_ENV !== 'production';
 const port  = process.env.PORT || 8080;
 
-const nodemailer = require('nodemailer');
+//const nodemailer = require('nodemailer');
 
 // Configuration
 // ================================================================================================
-
+/*
 //Create transporter with authentication
 let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -43,7 +43,7 @@ transporter.sendMail({
         expires: 1484314697598
     }
 });
-
+*/
 // Set up Mongoose
 mongoose.connect(isDev ? config.db_dev : config.db);
 mongoose.Promise = global.Promise;

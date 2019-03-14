@@ -23,6 +23,21 @@ class Map extends  Component {
     var resciverMail = document.getElementById('resciverMail');
     var mailText = document.getElementById('mailText');
 
+      fetch('/api/mail/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          park: select.value,
+          sm: senderMail.value,
+          rm: resciverMail.value,
+          text: mailText.value
+        }),
+      }).then(res => res.json())
+          .then(json => {
+            console.log('json', json);
+      })
   }
 
   //Inserting parkdata into select as options
@@ -75,8 +90,8 @@ render() {
                   <div className="form-group">
                     <div className="form-check">
 
-                      <select id="park-select" className="btn bg-white max-width text-middle" onClick={this.parkSelectClick}>
-                        <option>-- Park --</option>
+                      <select id="park-select" className="btn bg-white max-width text-middle" onClick={this.parkSelectClick} required>
+                        <option value="">-- Park --</option>
                       </select>
 
                       <br/>
@@ -90,7 +105,7 @@ render() {
 
                       <br/>
 
-                      <textarea className="form-control" id="mailText" placeholder="Message" rows="4" required></textarea>
+                      <textarea className="form-control" id="mailText" placeholder="Message minimum 20 characters" rows="4" minlength="20" required></textarea>
 
                     </div>
                   </div>

@@ -40,30 +40,13 @@ componentDidMount() {
   // promise
   geonames.search({q: 'CONT'}) //get continents
   .then(resp => {
-    console.log(resp.geonames);
+    while (i < 7)
+    {
+      console.log(resp.geonames[i].name);
+      i++;
+    }
   })
   .catch(err => console.error(err));
-
-  // promise
-  geonames.countryInfo({})
-  .then(countries => {
-    console.log(countries.geonames);
-    return geonames.children({geonameId: countries.geonames[58].geonameId})
-  })
-  .then(states => {
-    console.log(states.geonames);
-    return geonames.children({geonameId: states.geonames[0].geonameId});
-  })
-  .then(regions => {
-    console.log(regions.geonames);
-    return geonames.children({geonameId: regions.geonames[0].geonameId});
-  })
-  .then(cities => {
-    console.log(cities.geonames);
-  })
-  .catch(err => {
-    console.log(err)
-  });
 }
 
 CountrySelectorChanged() {
@@ -219,7 +202,7 @@ setRegionSelectorOptions() {
     return geonames.children({geonameId: country.value})
   })
   .then(states => {
-    return geonames.children({geonameId: region.value});
+    return geonames.children({geonameId: state.value});
   })
   .then(regions => {
     for (var i = 0; i < regions.geonames.length; i++) {
