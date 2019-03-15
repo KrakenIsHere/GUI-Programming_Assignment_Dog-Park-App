@@ -22,7 +22,7 @@ Architechture:
   - Inserting data from local json files and the GEOnames API into the corresponding select as option objects
 
 - Router / Routing:
-  - Specifies the URL and page to load, which allows for the linking of a page from within another components
+  - Specifies the URL and page to load, which allows for the linking of a page from within components
   - Telling the program that a route exists and what to show on the given route
 
 
@@ -70,6 +70,7 @@ Error Handeling and Testing:
   - Sign-up
        - A user cant sign-up without a valid E-mail
        - A user cant sign-up without a good enough password
+       - E-mail is not a duplicate
 
   - Logout
        - A user can logout at any time
