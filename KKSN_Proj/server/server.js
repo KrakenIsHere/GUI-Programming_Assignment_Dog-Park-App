@@ -17,33 +17,7 @@ const port  = process.env.PORT || 8080;
 
 // Configuration
 // ================================================================================================
-/*
-//Create transporter with authentication
-let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        clientId: '296309377569-ouh2vpnr6m5u8h11gag6vv41qak4mt73.apps.googleusercontent.com',
-        clientSecret: '0T5i1V8IKj7jDagOHTwfDXtr'
-    }
-});
 
-//Send mail
-transporter.sendMail({
-    from: 'sarka1223@gmail.com',
-    to: 'kris9463@edu.sde.dk',
-    subject: 'Message',
-    text: 'I hope this message gets through!',
-    auth: {
-        user: 'sarka1223@gmail.com',
-        refreshToken: '1/2ASAi8eOzOPrFH-jaefSa_-vGJwDqmXBDIl4ibhfItQ',
-        accessToken: 'ya29.GlvMBlJ-ZgSVvuhXz-jr_UZVq5nZ-yZX41gNHDpPePzK6zR6QqDlZusqbbe-x3LU81K3_l6LcYbfOAxPKjtafo0TnheL2MMwDA4yN6ojKnjKhq4VLgj1nQrOiZT_',
-        expires: 1484314697598
-    }
-});
-*/
 // Set up Mongoose
 mongoose.connect(isDev ? config.db_dev : config.db);
 mongoose.Promise = global.Promise;
@@ -90,7 +64,7 @@ app.listen(port, '0.0.0.0', (err) => {
     console.log(err);
   }
 
-  console.info('>>> 🌎 Open http://0.0.0.0:%s/ in your browser.', port);
+  console.info('>>> 🌎 Open http://localhost:%s/ in your browser.', port);
 });
 
 module.exports = app;

@@ -1,21 +1,5 @@
 {
-  "name": "MERN-boilerplate",
-  "version": "1.0.0",
-  "description": "MERN stack project boilerplate",
-  "author": "Eugene Cheung",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arkon/MERN-boilerplate.git"
-  },
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "start": "webpack -p --progress --profile --colors && node server",
-    "start:dev": "node server"
-  },
-  "engines": {
-    "node": ">=6"
-  },
+  "author": "Kritian K S Nielsen",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
     "@babel/preset-env": "^7.0.0-beta.42",
@@ -57,6 +41,7 @@
     "whatwg-fetch": "^2.0.3",
     "xoauth2": "^1.2.0"
   },
+  "description": "GUI-Programming Assignment",
   "devDependencies": {
     "autoprefixer": "^8.6.5",
     "css-loader": "^0.28.11",
@@ -65,5 +50,20 @@
     "postcss-loader": "^2.1.6",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3"
-  }
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MIT",
+  "name": "KKSN_Proj",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheWickedKraken/GUI-Programming_Assignment_Dog-Park-App"
+  },
+  "scripts": {
+    "start": "webpack -p --progress --profile --colors && node server",
+    "start:dev": "node server"
+  },
+  "version": "1.0.0"
 }

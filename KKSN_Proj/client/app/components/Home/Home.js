@@ -21,7 +21,7 @@ class Home extends Component {
               <div className="container h-100">
                 <div className="row h-100 align-items-center justify-content-center text-center">
                   <div className="col-lg-10 align-self-end">
-                    <h1 className="text-uppercase text-white font-weight-bold">Your Favorite Source of Free Bootstrap Themes</h1>
+                    <h1 className="text-uppercase text-white font-weight-bold">This page is a placeholder</h1>
                     <hr className="divider my-4"/>
                   </div>
 
@@ -87,8 +87,6 @@ class Home extends Component {
               <div className="container-fluid p-0 d-flex justify-content-around">
                 <div className="row no-gutters">
                   <div className="col-lg-4 col-sm-6">
-                    <a className="portfolio-box" href="../../../public/assets/img/portfolio/fullsize/1.jpg">
-                      <img className="img-fluid" src="../../../public/assets/img/portfolio/thumbnails/1.jpg" alt=""/>
                       <div className="portfolio-box-caption">
                         <div className="project-category text-white-50">
                           Category
@@ -97,11 +95,8 @@ class Home extends Component {
                           Project Name
                         </div>
                       </div>
-                    </a>
                   </div>
                   <div className="col-lg-4 col-sm-6">
-                    <a className="portfolio-box" href="../../../public/assets/img/portfolio/fullsize/2.jpg">
-                      <img className="img-fluid" src="../../../public/assets/img/portfolio/thumbnails/2.jpg" alt=""/>
                       <div className="portfolio-box-caption">
                         <div className="project-category text-white-50">
                           Category
@@ -110,11 +105,8 @@ class Home extends Component {
                           Project Name
                         </div>
                       </div>
-                    </a>
                   </div>
                   <div className="col-lg-4 col-sm-6">
-                    <a className="portfolio-box" href="../../../public/assets/img/portfolio/fullsize/3.jpg">
-                      <img className="img-fluid" src="../../../public/assets/img/portfolio/thumbnails/3.jpg" alt=""/>
                       <div className="portfolio-box-caption">
                         <div className="project-category text-white-50">
                           Category
@@ -123,11 +115,8 @@ class Home extends Component {
                           Project Name
                         </div>
                       </div>
-                    </a>
                   </div>
                   <div className="col-lg-4 col-sm-6">
-                    <a className="portfolio-box" href="../../../public/assets/img/portfolio/fullsize/4.jpg">
-                      <img className="img-fluid" src="../../../public/assets/img/portfolio/thumbnails/4.jpg" alt=""/>
                       <div className="portfolio-box-caption">
                         <div className="project-category text-white-50">
                           Category
@@ -136,11 +125,8 @@ class Home extends Component {
                           Project Name
                         </div>
                       </div>
-                    </a>
                   </div>
                   <div className="col-lg-4 col-sm-6">
-                    <a className="portfolio-box" href="../../../public/assets/img/portfolio/fullsize/5.jpg">
-                      <img className="img-fluid" src="../../../public/assets/img/portfolio/thumbnails/5.jpg" alt=""/>
                       <div className="portfolio-box-caption">
                         <div className="project-category text-white-50">
                           Category
@@ -149,11 +135,8 @@ class Home extends Component {
                           Project Name
                         </div>
                       </div>
-                    </a>
                   </div>
                   <div className="col-lg-4 col-sm-6">
-                    <a className="portfolio-box" href="../../../public/assets/img/portfolio/fullsize/6.jpg">
-                      <img className="img-fluid" src="../../../public/assets/img/portfolio/thumbnails/6.jpg" alt=""/>
                       <div className="portfolio-box-caption p-3">
                         <div className="project-category text-white-50">
                           Category
@@ -162,7 +145,6 @@ class Home extends Component {
                           Project Name
                         </div>
                       </div>
-                    </a>
                   </div>
                 </div>
               </div>

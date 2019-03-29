@@ -26,12 +26,12 @@ module.exports = (app) => {
 
   //Send mail
     transporter.sendMail( {
-        from: 'sarka1223@gmail.com', //No-reply E-Mail
+        from: '', //No-reply E-Mail
         to: rm,
         subject: 'ESS Doggo play date request at ' + park,
         text: 'From: ' + sm + '\n\n' + text,
         auth: {
-            user: 'sarka1223@gmail.com',
+            user: '', //User E-mail
             refreshToken: '1/2ASAi8eOzOPrFH-jaefSa_-vGJwDqmXBDIl4ibhfItQ',
             accessToken: 'ya29.GlvMBtd8n3gjw6iTsZMUfCHQ3jOXPcWgrwXC4Izn0vEgATYSrz8nBbWRIJmKkPNAX5Fq2UJ7mD8lO3OXbIBf6w3dymC3mrN0Wl7dZlMF40BP3ENN_FyqoWWNyCAd',
             expires: 1484314697598

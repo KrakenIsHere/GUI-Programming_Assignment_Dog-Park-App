@@ -24,6 +24,7 @@ class Header extends Component {
      const obj = getFromStorage('the_main_app');
      if (obj && obj.token) {
        const { token } = obj;
+
        // Verify token
        fetch('/api/account/verify?token=' + token)
          .then(res => res.json())
@@ -46,10 +47,13 @@ class Header extends Component {
      }
    }
 
+   //It is possible you will need to comment componentDidUpdate() make a user and then uncomment it (Below)
+
    componentDidUpdate() {
      const obj = getFromStorage('the_main_app');
      if (obj && obj.token) {
        const { token } = obj;
+
        // Verify token
        fetch('/api/account/verify?token=' + token)
          .then(res => res.json())
@@ -71,6 +75,9 @@ class Header extends Component {
        });
      }
    }
+
+   //It is possible you will need to comment componentDidUpdate() make a user and then uncomment it (The Above)
+
 
    render() {
      const {
@@ -126,7 +133,7 @@ class Header extends Component {
                    <NavLink className="nav-link" activeClassName="nav-link active" to="/SendRequest">Send Request</NavLink>
                  </li>
                  <li className="nav-item">
-                   <NavLink className="nav-link" activeClassName="nav-link active" to="/SRT">SRT (Dev Only)</NavLink>
+                   <NavLink className="nav-link" activeClassName="nav-link active" to="/SRT">SRT (Test Only)</NavLink>
                  </li>
                  <li className="nav-item">
                    <NavLink className="nav-link" activeClassName="nav-link active" to="/Contact">Contact</NavLink>

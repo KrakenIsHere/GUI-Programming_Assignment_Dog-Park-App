@@ -1,25 +1,15 @@
 React Frontend
 Node.js Backend
 
-Note: This project does require that you have a mongoDB database server installed and running
+Note: This project does require that you have a mongoDB database installed and running
 
 Open KKSN_Proj with GitBash
 
 Run this command:
 ```npm install```
 
-Install the MongoDB database server
-
 Then use:
 ```npm run start:dev```
-
-If you get an error form the Header,
-you might just need to go into the header file:
-/KKSN_Proj/client/app/components/Header/Header.js
-And comment out the componentDidUpdate section,
-then register a user after that you can uncomment it again
-
-At this point everything should work fine.
 
 Functionality & and user friendlyness:
 - UX (http://ui-patterns.com/patterns)
